@@ -64,14 +64,19 @@ public class Pessoa {
 	public String getTelefone() {
 		return telefone;
 	}
+	
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
 	public String getObservacoes() {
 		return observacoes;
 	}
+
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
+
+
 	
 }

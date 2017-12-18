@@ -1,18 +1,19 @@
 package br.com.gastronomia.padrao;
 
-public class Venda {
+import java.io.Serializable;
+
+public class Venda implements Serializable {
 	
 	private String cliente;
 	private String dataVenda;
-	private double horaVenda;
-	private Pedido pedidoVendido;
+	private String horaVenda;
 	
-	public Venda(String cliente, String dataVenda, double horaVenda, Pedido pedidoVendido) {
+	public Venda(String cliente, String dataVenda, String horaVenda) {
 		
 		this.cliente = cliente;
 		this.dataVenda = dataVenda;
 		this.horaVenda = horaVenda;
-		this.pedidoVendido = pedidoVendido;
+		
 		
 	}
 	
@@ -40,29 +41,19 @@ public class Venda {
 		
 	}
 	
-	public double getHoraVenda() {
+	public String getHoraVenda() {
 		
 		return this.horaVenda;
 		
 	}
 	
-	public void setHoraVenda(double horaVenda) {
+	public void setHoraVenda(String horaVenda) {
 		
 		this.horaVenda = horaVenda;
 		
 	}
 	
-	public Pedido getPedidoVendido() {
-		
-		return this.pedidoVendido;
-		
-	}
 	
-	public void setPedidoVendido(Pedido pedidoVendido) {
-		
-		this.pedidoVendido = pedidoVendido;
-		
-	}
 	
 
 }

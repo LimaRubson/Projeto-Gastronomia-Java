@@ -1,6 +1,8 @@
 package br.com.gastronomia.padrao;
 
-public class Prato {
+import java.io.Serializable;
+
+public class Prato implements Serializable {
 	
 	private int id;
 	private String nome;
