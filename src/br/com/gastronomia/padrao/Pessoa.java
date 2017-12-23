@@ -1,6 +1,6 @@
 package br.com.gastronomia.padrao;
 
-public class Pessoa {
+public abstract class Pessoa {
 	
 	private String nome;
 	private String cpf;
@@ -64,19 +64,14 @@ public class Pessoa {
 	public String getTelefone() {
 		return telefone;
 	}
-	
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
 	public String getObservacoes() {
 		return observacoes;
 	}
-
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
-
-
 	
 }

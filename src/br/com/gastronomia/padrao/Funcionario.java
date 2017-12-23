@@ -4,9 +4,10 @@ public class Funcionario extends Pessoa {
 	
 	private int cargaHoraria;
 	private double salario;
-
+	
 	public Funcionario(String nome, String cpf, String rg, char sexo, Endereco endereco, String email, String telefone,
 			String observacoes, int cargaHoraria, double salario) {
+		
 		super(nome, cpf, rg, sexo, endereco, email, telefone, observacoes);
 		
 		this.cargaHoraria = cargaHoraria;
@@ -29,5 +30,5 @@ public class Funcionario extends Pessoa {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-
+	
 }

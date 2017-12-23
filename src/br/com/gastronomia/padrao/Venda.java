@@ -14,7 +14,6 @@ public class Venda implements Serializable {
 		this.dataVenda = dataVenda;
 		this.horaVenda = horaVenda;
 		
-		
 	}
 	
 	public String getCliente() {
@@ -53,7 +52,4 @@ public class Venda implements Serializable {
 		
 	}
 	
-	
-	
-
 }

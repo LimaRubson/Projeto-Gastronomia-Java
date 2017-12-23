@@ -1,7 +1,5 @@
 package br.com.gastronomia.padrao;
 
-import java.util.ArrayList;
-
 public interface RepositorioItensPedidosList {
 	
 	public boolean inserirPedido(PedidoAbstrato pedido);

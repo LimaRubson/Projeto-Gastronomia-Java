@@ -5,30 +5,40 @@ public class Fachada {
 	private ControlePedidos pedidos;
 	private static Fachada instance;
 	
+	
 	public Fachada() {
 		
 		pedidos = new ControlePedidos();
 		
 	}
 	
-	public static Fachada getInstance(){
+	public static Fachada getInstance() {
 		
-		if (Fachada.instance == null){
+		if(Fachada.instance == null) {
+			
 			Fachada.instance = new Fachada();
+			
 		}
+		
 		return Fachada.instance;
+	}
+	
+	public void cadastrar(PedidoAbstrato pedido) {
+		
+		pedidos.cadastrar(pedido);
 		
 	}
 	
-	public void cadastrar(PedidoAbstrato conta) {
+	
+	public PedidoAbstrato procurar(String nomePedido) throws PratoIndisponivelException {
 		
-		pedidos.cadastrar(conta);
+		return pedidos.procurar(nomePedido);
 		
 	}
 	
-	public PedidoAbstrato procurar(String numero) {
+	public void remover(String nomePedido) {
 		
-		return pedidos.procurar(numero);
+		pedidos.remover(nomePedido);
 		
 	}
 

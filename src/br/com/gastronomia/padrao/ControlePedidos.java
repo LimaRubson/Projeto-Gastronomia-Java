@@ -2,18 +2,34 @@ package br.com.gastronomia.padrao;
 
 public class ControlePedidos {
 	
-	RepositorioItensPedidos pedidos = new RepositorioPedidosArquivo(); 
+	RepositorioItensPedidos pedidos =  new RepositorioPedidosArquivo();
 	
 	public void cadastrar(PedidoAbstrato pedido) {
-		pedidos.inserir(pedido);
+		
+		pedidos.inserirPedido(pedido);
+		
 	}
 	
-	public void remover (String numero) {
-		pedidos.remover(numero);
+	public void remover(String nomePedido) {
+		
+		pedidos.removerPedido(nomePedido);
 	}
 	
-	public PedidoAbstrato procurar(String numero) {
-		return pedidos.procurar(numero);
+	public PedidoAbstrato procurar(String nomePedido) throws PratoIndisponivelException {
+		
+		if(pedidos.procurarPedido(nomePedido) != null) {
+			
+			return pedidos.procurarPedido(nomePedido);
+			
+		}else {
+			
+			PratoIndisponivelException e;
+			e = new PratoIndisponivelException(nomePedido);
+			
+			throw e;
+			
+		}
+		
 	}
 
 }

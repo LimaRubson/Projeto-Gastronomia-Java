@@ -3,9 +3,11 @@ package br.com.gastronomia.padrao;
 import java.util.ArrayList;
 
 public class RepositorioPedidosArrayList implements RepositorioItensPedidosList {
-
-	ArrayList<PedidoAbstrato> listaPedidos = new ArrayList<PedidoAbstrato>();
 	
+	ArrayList<PedidoAbstrato> listaPedidos = new ArrayList<PedidoAbstrato>();
+
+
+
 	@Override
 	public boolean inserirPedido(PedidoAbstrato pedido) {
 		
@@ -26,12 +28,9 @@ public class RepositorioPedidosArrayList implements RepositorioItensPedidosList 
 	@Override
 	public boolean removerPedido(String nomePedido) {
 		
-		
 		for(int i = 0; i < listaPedidos.size(); i++) {
 			
-
 			if(listaPedidos.get(i).getPrato().getNome() == nomePedido) {
-				
 				
 				listaPedidos.remove(i).getPrato();
 				
@@ -39,37 +38,27 @@ public class RepositorioPedidosArrayList implements RepositorioItensPedidosList 
 				
 			}
 			
-			
 		}
-			
+		
 		return false;
-
 	}
 
 	@Override
 	public String procurarPedido(String nomePedido) {
 		
-	  String pedido = null;
+		String pedido = null;
 		
 		for(int i = 0; i < listaPedidos.size(); i++) {
 			
-
 			if(listaPedidos.get(i).getPrato().getNome() == nomePedido) {
 				
-				
-				  pedido = listaPedidos.get(i).getPrato().getNome();
-				
-				 
+				pedido = listaPedidos.get(i).getPrato().getNome();
 				
 			}
 			
 		}
 		
 		return pedido;
-		
 	}
-
 	
-	
-
 }

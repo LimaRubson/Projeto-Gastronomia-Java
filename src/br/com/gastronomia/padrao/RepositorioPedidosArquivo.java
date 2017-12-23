@@ -9,9 +9,27 @@ import java.io.ObjectOutputStream;
 public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 
 	@Override
-	public void inserir(PedidoAbstrato pedido) {
+	public void inserirPedido(PedidoAbstrato pedido) {
+		
+		try(ObjectOutputStream oos = 
+				new ObjectOutputStream(new FileOutputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido" + pedido.getPrato().getNome() + ".ser"))) {
+			
+			oos.writeObject(pedido);
+			System.out.println("Done");
+			
+		} catch (Exception ex) {
+			
+			ex.printStackTrace();
+			
+		}
+		
+	}
+
+	@Override
+	public void atualizarPedido(PedidoAbstrato pedido) {
+		
 		try (ObjectOutputStream oos =
-				new ObjectOutputStream(new FileOutputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/pedido" + pedido.getPrato().getNome() + ".ser"))) {
+				new ObjectOutputStream(new FileOutputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido"+ pedido.getPrato().getNome() +".ser"))) {
 
 			oos.writeObject(pedido);
 			System.out.println("Done");
@@ -23,59 +41,38 @@ public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 	}
 
 	@Override
-	public void atualizar(PedidoAbstrato pedido) {
+	public PedidoAbstrato procurarPedido(String nomePedido) {
 		
-		try (ObjectOutputStream oos =
-				new ObjectOutputStream(new FileOutputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/pedido" + pedido.getPrato().getNome() + ".ser"))) {
+		PedidoAbstrato pedido = null;
+		
+		try (ObjectInputStream ois
+				= new ObjectInputStream(new FileInputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido" + nomePedido +".ser"))) {
 
-			oos.writeObject(pedido);
-			System.out.println("Done");
-
-		} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		
-		
-	}
-
-	@Override
-	public PedidoAbstrato procurar(String nomePedido) {
-		
-			PedidoAbstrato pedido = null;
-	
-			try (ObjectInputStream ois
-				= new ObjectInputStream(new FileInputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/pedido" + nomePedido +".ser"))) {
-	
 				pedido = (PedidoAbstrato) ois.readObject();
-	
+
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-	
+
 			return pedido;
+		
 	}
 
 	@Override
-	public void remover(String nomePedido) {
+	public void removerPedido(String nomePedido) {
 		
 		try{
-			
-    			File file = new File("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/pedido" + nomePedido + ".ser");
-	    		if(file.delete()){
-	    			System.out.println(file.getName() + " foi deletado!");
-	    		}else{
-	    			System.out.println("A operação de remoção falhou!");
-	    		}
-    		
-		}catch(Exception e){
-			
+    		File file = new File("C:/Users/Rubson/Desktop/programacao-2017.2/pedido"+ nomePedido +".ser");
+    		if(file.delete()){
+    			System.out.println(file.getName() + " foi deletado!");
+    		}else{
+    			System.out.println("A operação de remoção Falhou.");
+    		}
+	   }catch(Exception e){
 			e.printStackTrace();
-				
-		}
+	    }
 		
 		
 	}
-	
-	
 
 }
