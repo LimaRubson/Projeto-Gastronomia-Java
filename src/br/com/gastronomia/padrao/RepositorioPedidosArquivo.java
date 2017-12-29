@@ -12,7 +12,7 @@ public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 	public void inserirPedido(PedidoAbstrato pedido) {
 		
 		try(ObjectOutputStream oos = 
-				new ObjectOutputStream(new FileOutputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido" + pedido.getPrato().getNome() + ".ser"))) {
+				new ObjectOutputStream(new FileOutputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/projeto-gastronomia-27-12-2017/pedido" + pedido.getPrato().getNome() + ".ser"))) {
 			
 			oos.writeObject(pedido);
 			System.out.println("Done");
@@ -29,7 +29,7 @@ public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 	public void atualizarPedido(PedidoAbstrato pedido) {
 		
 		try (ObjectOutputStream oos =
-				new ObjectOutputStream(new FileOutputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido"+ pedido.getPrato().getNome() +".ser"))) {
+				new ObjectOutputStream(new FileOutputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/projeto-gastronomia-27-12-2017/pedido"+ pedido.getPrato().getNome() +".ser"))) {
 
 			oos.writeObject(pedido);
 			System.out.println("Done");
@@ -46,7 +46,7 @@ public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 		PedidoAbstrato pedido = null;
 		
 		try (ObjectInputStream ois
-				= new ObjectInputStream(new FileInputStream("C:/Users/Rubson/Desktop/programacao-2017.2/pedido" + nomePedido +".ser"))) {
+				= new ObjectInputStream(new FileInputStream("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/projeto-gastronomia-27-12-2017/pedido" + nomePedido +".ser"))) {
 
 				pedido = (PedidoAbstrato) ois.readObject();
 
@@ -61,16 +61,23 @@ public class RepositorioPedidosArquivo implements RepositorioItensPedidos {
 	@Override
 	public void removerPedido(String nomePedido) {
 		
-		try{
-    		File file = new File("C:/Users/Rubson/Desktop/programacao-2017.2/pedido"+ nomePedido +".ser");
-    		if(file.delete()){
-    			System.out.println(file.getName() + " foi deletado!");
-    		}else{
-    			System.out.println("A operação de remoção Falhou.");
-    		}
-	   }catch(Exception e){
-			e.printStackTrace();
-	    }
+			try{
+	    		File file = new File("C:/Users/rubson.lima/Desktop/ProjetoGastronomia/projeto-gastronomia-27-12-2017/pedido"+ nomePedido +".ser");
+	    		if(file.delete()){
+	    			
+	    			System.out.println(file.getName() + " foi deletado!");
+	    			
+	    		}else {
+	    			
+	    			System.out.println("A operação de remoção Falhou.");
+	    			
+	    		}
+	    		
+		   } catch(Exception e) {
+			   
+				e.printStackTrace();
+				
+		    }
 		
 		
 	}

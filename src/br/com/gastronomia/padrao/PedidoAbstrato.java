@@ -52,4 +52,6 @@ public abstract class PedidoAbstrato implements Serializable {
 		this.quantidadeItensPedidos = quantidadeItensPedidos;
 	}
 	
+	
+	
 }

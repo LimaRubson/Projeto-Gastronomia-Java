@@ -1,15 +1,14 @@
 package br.com.gastronomia.padrao;
 
-
 public class Aplicacao {
 
 	public static void main(String[] args) {
 		
-RepositorioPedidosArrayList ArrayList = new RepositorioPedidosArrayList();
+		RepositorioPedidosArrayList ArrayList = new RepositorioPedidosArrayList();
 		
 		Venda venda = new Venda("Rubson Lima", "18/12/2017", "15:00");
 		Prato prato = new Prato(1, "TortaSalgada", "Ovos, farinha-de-trigo e frango", venda);
-		PedidoAbstrato pedido = new Pedido(2, 4, prato, 100, 2);
+		PedidoAbstrato pedido = new Pedido(200, 4, prato, 100, 2);
 		
 		Venda venda1 = new Venda("Rubson Lima", "23/12/2017", "15:33");
 		Prato prato1 = new Prato(1, "TortaDoce", "Ovos, farinha-de-trigo e chocolate", venda1);
